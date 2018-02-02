@@ -1,19 +1,11 @@
-CREATE USER sakila_dwh WITH
-  LOGIN
-  SUPERUSER
-  CREATEDB
-  CREATEROLE
-  PASSWORD 'sakila_dwh';
-
-CREATE DATABASE sakila_dwh
-WITH OWNER = sakila_dwh;
+-- Use sakila_dwh
 
 CREATE TABLE public.dim_actor
 (
-  actor_first_name  CHARACTER VARYING(45)                     NOT NULL,
   actor_key         SERIAL,
-  actor_last_name   CHARACTER VARYING(45)                     NOT NULL,
   actor_last_update TIMESTAMP WITHOUT TIME ZONE DEFAULT now() NOT NULL,
+  actor_first_name  CHARACTER VARYING(45)                     NOT NULL,
+  actor_last_name   CHARACTER VARYING(45)                     NOT NULL,
   actor_id          INTEGER                                   NOT NULL,
   PRIMARY KEY (actor_key)
 );
@@ -50,7 +42,7 @@ ALTER TABLE public.dim_customer
   OWNER TO postgres;
 
 CREATE TABLE dim_date (
-  date_key                INTEGER       NOT NULL,
+  date_key                SERIAL,
   date_value              DATE          NOT NULL,
   date_short              CHARACTER(12) NOT NULL,
   date_medium             CHARACTER(16) NOT NULL,
@@ -186,7 +178,7 @@ ALTER TABLE public.dim_store
   OWNER TO postgres;
 
 CREATE TABLE dim_time (
-  time_key   INTEGER  NOT NULL,
+  time_key   SERIAL,
   time_value TIME     NOT NULL,
   hours24    SMALLINT NOT NULL,
   hours12    SMALLINT,
@@ -196,7 +188,7 @@ CREATE TABLE dim_time (
   PRIMARY KEY (time_key),
   CONSTRAINT time_value UNIQUE (time_value)
 );
-ALTER TABLE public.dim_date
+ALTER TABLE public.dim_time
   OWNER TO postgres;
 
 CREATE TABLE fact_rental (
