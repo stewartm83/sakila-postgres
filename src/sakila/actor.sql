@@ -1,6 +1,6 @@
 INSERT INTO public.actor (
   actor_id, first_name, last_name, last_update)
-VALUES  (1, 'PENELOPE', 'GUINESS', '2017-02-15 09:34:33'),
+VALUES (1, 'PENELOPE', 'GUINESS', '2017-02-15 09:34:33'),
   (2, 'NICK', 'WAHLBERG', '2017-02-15 09:34:33'),
   (3, 'ED', 'CHASE', '2017-02-15 09:34:33'),
   (4, 'JENNIFER', 'DAVIS', '2017-02-15 09:34:33'),

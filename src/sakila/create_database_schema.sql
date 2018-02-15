@@ -1,19 +1,3 @@
--- User: sakila
--- DROP USER sakila;
-
-CREATE USER sakila WITH
-  LOGIN
-  SUPERUSER
-  CREATEDB
-  CREATEROLE
-  PASSWORD 'sakila';
-
--- Database: sakila
-
--- DROP DATABASE sakila;
-
-CREATE DATABASE sakila
-WITH OWNER = sakila;
 
 -- Type: mpaa_rating
 
